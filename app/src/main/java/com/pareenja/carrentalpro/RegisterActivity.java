@@ -2,14 +2,24 @@ package com.pareenja.carrentalpro;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.Objects;
 
@@ -28,6 +38,8 @@ public class RegisterActivity
     MaterialButton registerButton;
     MaterialButton toLoginButton;
 
+    FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +57,11 @@ public class RegisterActivity
         registerButton = findViewById(R.id.material_button_register);
         toLoginButton = findViewById(R.id.material_button_to_login);
 
-
         userImageButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
         toLoginButton.setOnClickListener(this);
+
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -58,7 +71,12 @@ public class RegisterActivity
                 break;
             case R.id.material_button_register:
                 if (validateInformation()) {
+                    String email = Objects.requireNonNull(emailTextInput.getEditText())
+                            .getText().toString().trim().toLowerCase();
+                    String password = Objects.requireNonNull(passwordInput.getEditText())
+                            .getText().toString().trim();
 
+                    createUser(email, password);
                 }
                 break;
             case R.id.material_button_to_login:
@@ -120,8 +138,7 @@ public class RegisterActivity
         if (email.equals("")) {
             emailTextInput.setError("Required");
             return false;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailTextInput.setError("Invalid Email");
             return false;
         }
@@ -139,5 +156,46 @@ public class RegisterActivity
         return true;
     }
 
+    public void createUser(String email, String password) {
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
 
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            if (user != null) {
+                                String userName = Objects.requireNonNull(nameTextInput.getEditText())
+                                        .getText().toString().trim();
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(userName)
+//                                    .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+                                        .build();
+
+                                user.updateProfile(profileUpdates);
+                            }
+
+
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                Toast.makeText(RegisterActivity.this,
+                                        "User Already Exists",
+                                        Toast.LENGTH_SHORT)
+                                        .show();
+                            } else {
+
+                                Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+    }
 }
