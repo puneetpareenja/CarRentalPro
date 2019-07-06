@@ -1,6 +1,7 @@
 
 package com.pareenja.carrentalpro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -33,7 +34,7 @@ public class LoginActivity
         emailTextInputLayout = findViewById(R.id.text_input_email);
         passwordTextInputLayout = findViewById(R.id.text_input_password);
         loginButton = findViewById(R.id.material_button_login);
-        registerButton = findViewById(R.id.material_button_register);
+        registerButton = findViewById(R.id.material_button_to_register);
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
@@ -47,7 +48,9 @@ public class LoginActivity
 
                 }
                 break;
-            case R.id.material_button_register:
+            case R.id.material_button_to_register:
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
                 break;
         }
     }
