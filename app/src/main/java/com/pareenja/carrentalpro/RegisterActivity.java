@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
 
@@ -174,8 +175,9 @@ public class RegisterActivity
                                         .setDisplayName(userName)
 //                                    .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
                                         .build();
-
                                 user.updateProfile(profileUpdates);
+
+                                addPerson(user.getUid());
                             }
 
 
@@ -197,5 +199,22 @@ public class RegisterActivity
                         }
                     }
                 });
+    }
+
+    private void addPerson(String uid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        String name = Objects.requireNonNull(nameTextInput.getEditText()).getText().toString().trim();
+        String email = Objects.requireNonNull(emailTextInput.getEditText()).getText().toString().trim().toLowerCase();
+        String phone = Objects.requireNonNull(phoneTextInput.getEditText()).getText().toString().trim();
+
+        Person person = new Person();
+        person.setId(uid);
+        person.setName(name);
+        person.setEmail(email);
+        person.setPhone(phone);
+        person.setPersonRole(PersonRole.CUSTOMER);
+
+        db.collection("users").document(uid).set(person);
     }
 }

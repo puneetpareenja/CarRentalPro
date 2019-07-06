@@ -1,13 +1,13 @@
 package com.pareenja.carrentalpro;
 
-public class User {
+public class Person {
     private String id;
     private String name;
     private String email;
     private String phone;
-    private UserRole userRole;
+    private PersonRole personRole;
 
-    public User() {
+    public Person() {
     }
 
     public String getId() {
@@ -42,12 +42,12 @@ public class User {
         this.phone = phone;
     }
 
-    public UserRole getUserRole() {
-        return userRole;
+    public PersonRole getPersonRole() {
+        return personRole;
     }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
+    public void setPersonRole(PersonRole personRole) {
+        this.personRole = personRole;
     }
 }
 
