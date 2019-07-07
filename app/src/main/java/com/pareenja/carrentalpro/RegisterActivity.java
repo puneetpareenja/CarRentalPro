@@ -1,7 +1,10 @@
 package com.pareenja.carrentalpro;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -12,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -21,7 +26,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class RegisterActivity
@@ -29,6 +38,9 @@ public class RegisterActivity
         implements View.OnClickListener {
 
     private static final String TAG = "RegisterActivity";
+    private final int PICK_IMAGE_REQUEST = 71;
+
+    private Uri filePath;
 
     ImageButton userImageButton;
     TextInputLayout nameTextInput;
@@ -69,6 +81,7 @@ public class RegisterActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.image_button_user:
+                chooseImage();
                 break;
             case R.id.material_button_register:
                 if (validateInformation()) {
@@ -86,6 +99,50 @@ public class RegisterActivity
                 break;
         }
 
+    }
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                userImageButton.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void uploadImage(String id) {
+
+        if (filePath != null) {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
+            StorageReference ref = storageReference.child("images/" + id);
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(RegisterActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(RegisterActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private boolean validateInformation() {
@@ -178,6 +235,7 @@ public class RegisterActivity
                                 user.updateProfile(profileUpdates);
 
                                 addPerson(user.getUid());
+                                uploadImage(user.getUid());
                             }
 
 
