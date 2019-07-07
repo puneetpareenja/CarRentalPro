@@ -106,17 +106,19 @@ public class LoginActivity
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Person person = documentSnapshot.toObject(Person.class);
 
-                Intent intent;
+                Intent intent = new Intent();
 
                 if (person != null) {
                     if (person.getPersonRole() == PersonRole.ADMINISTRATOR) {
-
+                        intent = new Intent(LoginActivity.this, AdminViewActivity.class);
                     } else if (person.getPersonRole() == PersonRole.SALESPERSON) {
-
+                        intent = new Intent(LoginActivity.this, SalesViewActivity.class);
                     } else {
-
+                        intent = new Intent(LoginActivity.this, CustomerViewActivity.class);
                     }
                 }
+
+                startActivity(intent);
             }
         });
 
