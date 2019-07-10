@@ -35,5 +35,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.firebase:firebase-storage:18.0.0'
 
+    //Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+
 
 }
