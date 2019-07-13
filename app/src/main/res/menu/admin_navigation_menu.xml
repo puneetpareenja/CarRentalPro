@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_item_view_cars"
+        android:id="@+id/admin_item_view_cars"
         android:icon="@drawable/ic_directions_car_black_24dp"
         android:title="Cars" />
 
     <item
-        android:id="@+id/menu_item_view_users"
+        android:id="@+id/admin_item_view_users"
         android:icon="@drawable/ic_people_black_24dp"
         android:title="Users" />
 
     <item
-        android:id="@+id/menu_item_view_employees"
+        android:id="@+id/admin_item_view_employees"
         android:icon="@drawable/ic_work_black_24dp"
         android:title="Employees" />
 
     <item
-        android:id="@+id/menu_item_view_reservations"
+        android:id="@+id/admin_item_view_reservations"
         android:icon="@drawable/ic_insert_drive_file_black_24dp"
         android:title="Reservations" />
 
     <item
-        android:id="@+id/menu_item_view_orders"
+        android:id="@+id/admin_item_view_orders"
         android:icon="@drawable/ic_library_books_black_24dp"
         android:title="Orders" />
 </menu>

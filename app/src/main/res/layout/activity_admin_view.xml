@@ -7,7 +7,11 @@
     tools:context=".AdminViewActivity">
 
 
-    <!-- Main content -->
+    <FrameLayout
+        android:id="@+id/admin_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -17,6 +21,6 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/admin_navigation_menu" />
 </RelativeLayout>
 

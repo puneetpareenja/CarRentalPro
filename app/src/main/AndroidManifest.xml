@@ -14,7 +14,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CustomerViewActivity" />
         <activity android:name=".SalesViewActivity" />
-        <activity android:name=".AdminViewActivity" />
+        <activity android:name=".AdminViewActivity"
+            android:theme="@style/AppThemeNoActionBar"/>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppThemeNoActionBar" />
