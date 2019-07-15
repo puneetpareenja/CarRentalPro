@@ -139,6 +139,7 @@ public class LoginActivity
                 }
 
                 startActivity(intent);
+                finish();
             }
         });
 
