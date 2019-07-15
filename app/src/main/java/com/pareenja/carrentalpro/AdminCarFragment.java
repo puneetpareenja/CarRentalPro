@@ -57,6 +57,7 @@ public class AdminCarFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getContext(), "Fab is working", Toast.LENGTH_SHORT).show();
+
                 }
             };
 

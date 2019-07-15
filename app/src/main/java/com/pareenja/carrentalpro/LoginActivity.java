@@ -2,6 +2,7 @@
 package com.pareenja.carrentalpro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -29,11 +30,16 @@ public class LoginActivity
         implements View.OnClickListener {
 
     private static final String TAG = "LoginActivity";
+    private static final String SHARED_PREFERENCES = "preferences";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
 
     TextInputLayout emailTextInputLayout;
     TextInputLayout passwordTextInputLayout;
     MaterialButton loginButton;
     MaterialButton registerButton;
+
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,14 @@ public class LoginActivity
         setContentView(R.layout.activity_login);
         initLayout();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        emailTextInputLayout.getEditText().setText(sharedPreferences.getString(EMAIL, ""));
+        passwordTextInputLayout.getEditText().setText(sharedPreferences.getString(PASSWORD, ""));
     }
 
     private void initLayout() {
@@ -51,6 +65,8 @@ public class LoginActivity
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
+
+        sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
     }
 
     @Override
@@ -82,6 +98,10 @@ public class LoginActivity
                         signInForUser(Objects.requireNonNull(FirebaseAuth.getInstance()
                                 .getCurrentUser()).getUid());
 
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(EMAIL, email);
+                        editor.putString(PASSWORD, password);
+                        editor.apply();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
