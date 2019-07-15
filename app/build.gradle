@@ -46,4 +46,7 @@ dependencies {
     //Firebase UI
     implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
 
+    // Super Bottom Sheet
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:1.3.0'
+
 }
