@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Car implements Parcelable {
+
     public static final Creator<Car> CREATOR = new Creator<Car>() {
         @Override
         public Car createFromParcel(Parcel in) {
@@ -15,6 +16,7 @@ public class Car implements Parcelable {
             return new Car[size];
         }
     };
+
     private String vinNumber;
     private String carModel;
     private String brand;
@@ -25,7 +27,6 @@ public class Car implements Parcelable {
     private String id;
     private boolean isReserved;
     private boolean isBroken;
-
 
     public Car() {
 

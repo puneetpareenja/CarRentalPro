@@ -1,11 +1,12 @@
 package com.pareenja.carrentalpro.models;
 
 public class Person {
+
     private String id;
     private String name;
     private String email;
     private String phone;
-    private PersonRole personRole;
+    private String personRole;
 
     public Person() {
     }
@@ -42,11 +43,11 @@ public class Person {
         this.phone = phone;
     }
 
-    public PersonRole getPersonRole() {
+    public String getPersonRole() {
         return personRole;
     }
 
-    public void setPersonRole(PersonRole personRole) {
+    public void setPersonRole(String  personRole) {
         this.personRole = personRole;
     }
 }
