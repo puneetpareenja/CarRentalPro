@@ -30,7 +30,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.pareenja.carrentalpro.models.Person;
-import com.pareenja.carrentalpro.models.PersonRole;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -273,7 +272,7 @@ public class RegisterActivity
         person.setName(name);
         person.setEmail(email);
         person.setPhone(phone);
-        person.setPersonRole(PersonRole.CUSTOMER);
+        person.setPersonRole("Customer");
 
         db.collection("users").document(uid).set(person);
     }
