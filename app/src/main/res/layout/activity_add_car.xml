@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCarBottomSheetFragment">
+    app:cardCornerRadius="16dp"
+    tools:context=".AddCarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/image_view_car_image"
+            android:layout_marginTop="24dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
@@ -142,5 +145,7 @@
             android:layout_marginTop="8dp"
             android:padding="16dp"
             android:text="@string/add_new_car" />
+
     </LinearLayout>
-</FrameLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,6 +1,7 @@
 package com.pareenja.carrentalpro;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,15 +53,10 @@ public class AdminCarFragment extends Fragment {
         return layout;
     }
 
-    ExtendedFloatingActionButton.OnClickListener fabListener =
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AddCarBottomSheetFragment addCarBottomSheetFragment = new AddCarBottomSheetFragment();
-                    addCarBottomSheetFragment.show(
-                            getActivity().getSupportFragmentManager(), "AddCarBottomSheetFragment");
-
-                }
+    private ExtendedFloatingActionButton.OnClickListener fabListener =
+            v -> {
+                Intent intent = new Intent(getContext(), AddCarActivity.class);
+                startActivity(intent);
             };
 
     private void setUpRecyclerView() {
