@@ -1,4 +1,4 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.models;
 
 public class Person {
     private String id;

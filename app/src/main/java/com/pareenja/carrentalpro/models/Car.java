@@ -1,4 +1,4 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

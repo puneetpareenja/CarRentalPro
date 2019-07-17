@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pareenja.carrentalpro.models.Person;
+import com.pareenja.carrentalpro.models.PersonRole;
 
 import java.util.Objects;
 

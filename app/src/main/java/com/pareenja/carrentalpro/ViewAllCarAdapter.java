@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.pareenja.carrentalpro.models.Car;
 
 public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarAdapter.ViewHolder> {
 
