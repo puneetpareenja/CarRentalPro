@@ -15,4 +15,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_car">Add New Car</string>
     <string name="car_image">Car Image</string>
+    <string name="brand">Brand</string>
+    <string name="model">Model</string>
+    <string name="color">Color</string>
+    <string name="capacity">Capacity</string>
+    <string name="price_per_hour">Price Per Hour</string>
+    <string name="price_per_day">Price Per Day</string>
+    <string name="new_car_image">New Car Image</string>
 </resources>

@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -57,7 +56,9 @@ public class AdminCarFragment extends Fragment {
             new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(), "Fab is working", Toast.LENGTH_SHORT).show();
+                    AddCarBottomSheetFragment addCarBottomSheetFragment = new AddCarBottomSheetFragment();
+                    addCarBottomSheetFragment.show(
+                            getActivity().getSupportFragmentManager(), "AddCarBottomSheetFragment");
 
                 }
             };
