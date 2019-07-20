@@ -44,6 +44,36 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/text_view_label_car_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_car_color"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/image_view_car_image"
+            android:text="@string/capacity"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_view_car_capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_car_color"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/text_view_label_car_capacity"
+            android:text="4"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_view_car_vin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_car_name"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/text_view_car_color"
+            android:text="JLKNSDK234"
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/text_view_car_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

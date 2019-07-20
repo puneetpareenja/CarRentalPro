@@ -32,6 +32,9 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
     protected void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i, @NonNull Car car) {
         viewHolder.carNameTextView.setText(car.getBrand() + " " + car.getCarModel());
         viewHolder.carColorTextView.setText(car.getColor());
+        viewHolder.carVinTextView.setText(car.getVinNumber());
+        viewHolder.carCapacityTextView.setText(String.valueOf(car.getCapacity()));
+
         NumberFormat format = NumberFormat.getCurrencyInstance();
 
         viewHolder.carPriceTextView.setText(
@@ -64,6 +67,8 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
         TextView carNameTextView;
         TextView carColorTextView;
         TextView carPriceTextView;
+        TextView carVinTextView;
+        TextView carCapacityTextView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +77,8 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
             carNameTextView = itemView.findViewById(R.id.text_view_car_name);
             carColorTextView = itemView.findViewById(R.id.text_view_car_color);
             carPriceTextView = itemView.findViewById(R.id.text_view_car_price);
+            carVinTextView = itemView.findViewById(R.id.text_view_car_vin);
+            carCapacityTextView = itemView.findViewById(R.id.text_view_car_capacity);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
