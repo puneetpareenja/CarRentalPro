@@ -22,7 +22,10 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pareenja.carrentalpro.admin.AdminViewActivity;
+import com.pareenja.carrentalpro.customer.CustomerViewActivity;
 import com.pareenja.carrentalpro.models.Person;
+import com.pareenja.carrentalpro.salesperson.SalesViewActivity;
 
 import java.util.Objects;
 

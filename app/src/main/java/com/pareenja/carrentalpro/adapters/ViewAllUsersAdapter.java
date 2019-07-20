@@ -1,4 +1,4 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.pareenja.carrentalpro.R;
 import com.pareenja.carrentalpro.models.Person;
 
 import de.hdodenhof.circleimageview.CircleImageView;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardCornerRadius="16dp"
-    tools:context=".AddCarActivity">
+    tools:context=".admin.AddCarActivity">
 
     <ScrollView
         android:layout_width="match_parent"

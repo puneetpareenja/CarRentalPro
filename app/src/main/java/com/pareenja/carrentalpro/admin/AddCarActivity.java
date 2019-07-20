@@ -1,4 +1,4 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.admin;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pareenja.carrentalpro.R;
 import com.pareenja.carrentalpro.models.Car;
 
 public class AddCarActivity extends Activity {

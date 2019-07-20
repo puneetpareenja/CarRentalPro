@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminCarFragment"
+    tools:context=".admin.AdminCarFragment"
     tools:showIn="@layout/fragment_admin_car">
 
     <androidx.recyclerview.widget.RecyclerView

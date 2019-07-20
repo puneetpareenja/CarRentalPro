@@ -1,9 +1,11 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.customer;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.pareenja.carrentalpro.R;
 
 public class CustomerViewActivity extends AppCompatActivity {
 

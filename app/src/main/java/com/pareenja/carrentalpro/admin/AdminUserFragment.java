@@ -1,4 +1,4 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.admin;
 
 
 import android.content.Intent;
@@ -18,7 +18,10 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.pareenja.carrentalpro.models.Car;
+import com.google.firebase.firestore.auth.User;
+import com.pareenja.carrentalpro.R;
+import com.pareenja.carrentalpro.adapters.ViewAllUsersAdapter;
+import com.pareenja.carrentalpro.models.Person;
 
 import java.util.ArrayList;
 
@@ -26,28 +29,28 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdminCarFragment extends Fragment {
+public class AdminUserFragment extends Fragment {
 
-    private static final String TAG = "AdminCarFragment";
-    ArrayList<Car> carArrayList = new ArrayList<>();
+    private static final String TAG = "AdminUserFragment";
+
+    ArrayList<User> carArrayList = new ArrayList<>();
     RecyclerView recyclerView;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference carRef = db.collection("cars");
-    private ViewAllCarAdapter viewAllCarAdapter;
+    private CollectionReference userRef = db.collection("users");
+    private ViewAllUsersAdapter viewAllUsersAdapter;
     private View layout;
     private ExtendedFloatingActionButton fab;
 
-    public AdminCarFragment() {
+    public AdminUserFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        layout = inflater.inflate(R.layout.fragment_admin_car, container, false);
-        fab = layout.findViewById(R.id.fab_add_new_car);
+        layout = inflater.inflate(R.layout.fragment_admin_user, container, false);
+        fab = layout.findViewById(R.id.fab_add_new_user);
         fab.setOnClickListener(fabListener);
         setUpRecyclerView();
         return layout;
@@ -60,26 +63,26 @@ public class AdminCarFragment extends Fragment {
             };
 
     private void setUpRecyclerView() {
-        Query query = carRef;
+        Query query = userRef.whereEqualTo("personRole", "CUSTOMER");
 
-        FirestoreRecyclerOptions<Car> carFirestoreRecyclerOptions =
-                new FirestoreRecyclerOptions.Builder<Car>()
-                        .setQuery(query, Car.class)
+        FirestoreRecyclerOptions<Person> userFirestoreRecyclerOptions =
+                new FirestoreRecyclerOptions.Builder<Person>()
+                        .setQuery(query, Person.class)
                         .build();
 
         Log.d(TAG, "setUpRecyclerView: Everything is working fine");
-        viewAllCarAdapter = new ViewAllCarAdapter(carFirestoreRecyclerOptions);
-        RecyclerView recyclerView = layout.findViewById(R.id.admin_car_recycler_view);
+        viewAllUsersAdapter = new ViewAllUsersAdapter(userFirestoreRecyclerOptions);
+        RecyclerView recyclerView = layout.findViewById(R.id.admin_user_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(viewAllCarAdapter);
+        recyclerView.setAdapter(viewAllUsersAdapter);
 
-        viewAllCarAdapter.setOnItemClickListener(new ViewAllCarAdapter.OnItemClickListener() {
+        viewAllUsersAdapter.setOnItemClickListener(new ViewAllUsersAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                Car car = documentSnapshot.toObject(Car.class);
-                car.setId(documentSnapshot.getId());
+                Person person = documentSnapshot.toObject(Person.class);
+                person.setId(documentSnapshot.getId());
 
 //                Intent intent = new Intent(ViewCarsActivity.this, CarDetailsActivity.class);
 //                intent.putExtra("car", car);
@@ -91,13 +94,13 @@ public class AdminCarFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewAllCarAdapter.startListening();
+        viewAllUsersAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        viewAllCarAdapter.stopListening();
+        viewAllUsersAdapter.stopListening();
     }
 
 }

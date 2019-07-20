@@ -1,8 +1,10 @@
-package com.pareenja.carrentalpro;
+package com.pareenja.carrentalpro.salesperson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.pareenja.carrentalpro.R;
 
 public class SalesViewActivity extends AppCompatActivity {
 
