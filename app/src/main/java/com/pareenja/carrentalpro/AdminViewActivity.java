@@ -49,6 +49,7 @@ public class AdminViewActivity
                         case R.id.admin_item_view_reservations:
                             break;
                         case R.id.admin_item_view_users:
+                            selectedFragment = new AdminUserFragment();
                             break;
                     }
 
