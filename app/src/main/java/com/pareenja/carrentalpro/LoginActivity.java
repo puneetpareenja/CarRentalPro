@@ -77,6 +77,7 @@ public class LoginActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.material_button_login:
+
                 if (isEmailValid() & isPasswordValid()) {
                     String email = Objects.requireNonNull(emailTextInputLayout.getEditText())
                             .getText().toString().toLowerCase().trim();

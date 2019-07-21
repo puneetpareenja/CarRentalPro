@@ -3,6 +3,7 @@ package com.pareenja.carrentalpro.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.pareenja.carrentalpro.R;
 import com.pareenja.carrentalpro.models.Person;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, ViewAllUsersAdapter.ViewHolder> {
 
@@ -51,7 +50,7 @@ public class ViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, ViewAl
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView userCircularImageView;
+        ImageView userCircularImageView;
         TextView userNameTextView;
         TextView userEmailTextView;
         TextView userPhoneTextView;
@@ -59,7 +58,7 @@ public class ViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, ViewAl
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            userCircularImageView = itemView.findViewById(R.id.circular_image_user_image);
+            userCircularImageView = itemView.findViewById(R.id.image_view_user_image);
             userNameTextView = itemView.findViewById(R.id.text_view_username);
             userEmailTextView = itemView.findViewById(R.id.text_view_email);
             userPhoneTextView = itemView.findViewById(R.id.text_view_phone);

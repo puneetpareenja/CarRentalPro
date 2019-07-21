@@ -58,7 +58,7 @@ public class AdminUserFragment extends Fragment {
 
     private ExtendedFloatingActionButton.OnClickListener fabListener =
             v -> {
-                Intent intent = new Intent(getContext(), AddCarActivity.class);
+                Intent intent = new Intent(getContext(), AddUserActivity.class);
                 startActivity(intent);
             };
 

@@ -49,7 +49,7 @@ public class AddCarActivity extends Activity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int) (width * 0.9), (int) (height * 0.8));
+        getWindow().setLayout((int) (width * 0.9), (int) (height * 0.9));
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 

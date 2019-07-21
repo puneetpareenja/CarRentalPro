@@ -13,17 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circular_image_user_image"
+        <ImageView
+            android:id="@+id/image_view_user_image"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_person_black_24dp" />
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_person_black_24dp"
+            android:contentDescription="@string/user_image" />
 
         <LinearLayout
-            android:layout_toEndOf="@id/circular_image_user_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toEndOf="@id/image_view_user_image"
             android:gravity="center"
             android:orientation="vertical">
 

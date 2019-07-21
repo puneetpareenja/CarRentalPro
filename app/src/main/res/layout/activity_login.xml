@@ -53,7 +53,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/material_button_to_register"
-
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
