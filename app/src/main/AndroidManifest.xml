@@ -13,15 +13,13 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".admin.AddUserActivity"
-            android:parentActivityName=".admin.AdminViewActivity"
-            android:theme="@style/AppTheme.PopUpTheme" />
+            android:parentActivityName=".admin.AdminViewActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".customer.CustomerViewActivity" />
         <activity android:name=".salesperson.SalesViewActivity" />
         <activity
             android:name=".admin.AddCarActivity"
-            android:parentActivityName=".admin.AdminViewActivity"
-            android:theme="@style/AppTheme.PopUpTheme" />
+            android:parentActivityName=".admin.AdminViewActivity" />
         <activity
             android:name=".admin.AdminViewActivity"
             android:theme="@style/AppThemeNoActionBar" />

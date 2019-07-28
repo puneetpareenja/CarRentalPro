@@ -2,6 +2,7 @@ package com.pareenja.carrentalpro.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,14 +10,14 @@ import android.util.DisplayMetrics;
 
 import com.pareenja.carrentalpro.R;
 
-public class AddUserActivity extends AppCompatActivity {
+public class AddUserActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-        initActivityAsDialog();
+//        initActivityAsDialog();
         initLayout();
     }
 
@@ -24,7 +25,7 @@ public class AddUserActivity extends AppCompatActivity {
 
     }
 
-    private void initActivityAsDialog() {
+   /* private void initActivityAsDialog() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
@@ -33,5 +34,7 @@ public class AddUserActivity extends AppCompatActivity {
 
         getWindow().setLayout((int) (width * 0.9), (int) (height * 0.9));
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-    }
+    }*/
+
+
 }
