@@ -27,12 +27,12 @@ public class Car implements Parcelable {
     private String id;
     private boolean isReserved;
     private boolean isBroken;
+    private boolean isBooked;
+
 
     public Car() {
 
     }
-
-    private boolean isBooked;
 
     protected Car(Parcel in) {
         id = in.readString();

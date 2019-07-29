@@ -51,7 +51,10 @@ public class CustomerCarFragment extends Fragment {
     }
 
     private void setUpRecyclerView() {
-        Query query = carRef;
+        Query query = carRef
+                .whereEqualTo("broken", false)
+                .whereEqualTo("booked", false)
+                .whereEqualTo("reserved", false);
 
         FirestoreRecyclerOptions<Car> carFirestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<Car>()
