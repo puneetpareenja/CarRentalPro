@@ -19,7 +19,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.pareenja.carrentalpro.R;
-import com.pareenja.carrentalpro.adapters.ViewAllUsersAdapter;
+import com.pareenja.carrentalpro.adapters.AdminViewAllUsersAdapter;
 import com.pareenja.carrentalpro.models.Person;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class AdminEmployeeFragment extends Fragment {
     RecyclerView recyclerView;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference userRef = db.collection("users");
-    private ViewAllUsersAdapter viewAllUsersAdapter;
+    private AdminViewAllUsersAdapter adminViewAllUsersAdapter;
     private View layout;
     private ExtendedFloatingActionButton fab;
 
@@ -71,14 +71,14 @@ public class AdminEmployeeFragment extends Fragment {
 
         Log.d(TAG, "setUpRecyclerView: Everything is working fine");
 
-        viewAllUsersAdapter = new ViewAllUsersAdapter(userFirestoreRecyclerOptions);
+        adminViewAllUsersAdapter = new AdminViewAllUsersAdapter(userFirestoreRecyclerOptions);
         RecyclerView recyclerView = layout.findViewById(R.id.admin_employee_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(viewAllUsersAdapter);
+        recyclerView.setAdapter(adminViewAllUsersAdapter);
 
-        viewAllUsersAdapter.setOnItemClickListener(new ViewAllUsersAdapter.OnItemClickListener() {
+        adminViewAllUsersAdapter.setOnItemClickListener(new AdminViewAllUsersAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 Person person = documentSnapshot.toObject(Person.class);
@@ -94,13 +94,13 @@ public class AdminEmployeeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewAllUsersAdapter.startListening();
+        adminViewAllUsersAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        viewAllUsersAdapter.stopListening();
+        adminViewAllUsersAdapter.stopListening();
     }
 
 }

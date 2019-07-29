@@ -19,7 +19,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.pareenja.carrentalpro.R;
-import com.pareenja.carrentalpro.adapters.ViewAllCarAdapter;
+import com.pareenja.carrentalpro.adapters.AdminViewAllCarAdapter;
 import com.pareenja.carrentalpro.models.Car;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class AdminCarFragment extends Fragment {
     RecyclerView recyclerView;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference carRef = db.collection("cars");
-    private ViewAllCarAdapter viewAllCarAdapter;
+    private AdminViewAllCarAdapter adminViewAllCarAdapter;
     private View layout;
     private ExtendedFloatingActionButton fab;
 
@@ -70,14 +70,14 @@ public class AdminCarFragment extends Fragment {
                         .build();
 
         Log.d(TAG, "setUpRecyclerView: Everything is working fine");
-        viewAllCarAdapter = new ViewAllCarAdapter(carFirestoreRecyclerOptions);
+        adminViewAllCarAdapter = new AdminViewAllCarAdapter(carFirestoreRecyclerOptions);
         RecyclerView recyclerView = layout.findViewById(R.id.admin_car_recycler_view);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(viewAllCarAdapter);
+        recyclerView.setAdapter(adminViewAllCarAdapter);
 
-        viewAllCarAdapter.setOnItemClickListener(new ViewAllCarAdapter.OnItemClickListener() {
+        adminViewAllCarAdapter.setOnItemClickListener(new AdminViewAllCarAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 Car car = documentSnapshot.toObject(Car.class);
@@ -93,13 +93,13 @@ public class AdminCarFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        viewAllCarAdapter.startListening();
+        adminViewAllCarAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        viewAllCarAdapter.stopListening();
+        adminViewAllCarAdapter.stopListening();
     }
 
 }

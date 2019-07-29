@@ -4,20 +4,12 @@ package com.pareenja.carrentalpro.admin;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.pareenja.carrentalpro.R;
-import com.pareenja.carrentalpro.adapters.ViewAllCarAdapter;
-import com.pareenja.carrentalpro.models.Car;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.

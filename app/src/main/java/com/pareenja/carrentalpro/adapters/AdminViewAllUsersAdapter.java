@@ -15,11 +15,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.pareenja.carrentalpro.R;
 import com.pareenja.carrentalpro.models.Person;
 
-public class ViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, ViewAllUsersAdapter.ViewHolder> {
+public class AdminViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, AdminViewAllUsersAdapter.ViewHolder> {
 
-    private ViewAllUsersAdapter.OnItemClickListener listener;
+    private AdminViewAllUsersAdapter.OnItemClickListener listener;
 
-    public ViewAllUsersAdapter(@NonNull FirestoreRecyclerOptions<Person> options) {
+    public AdminViewAllUsersAdapter(@NonNull FirestoreRecyclerOptions<Person> options) {
         super(options);
     }
 
@@ -32,14 +32,14 @@ public class ViewAllUsersAdapter extends FirestoreRecyclerAdapter<Person, ViewAl
 
     @NonNull
     @Override
-    public ViewAllUsersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminViewAllUsersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(parent.getContext())
                 .inflate(R.layout.user_item_view, parent, false);
-        return new ViewAllUsersAdapter.ViewHolder(view);
+        return new AdminViewAllUsersAdapter.ViewHolder(view);
     }
 
-    public void setOnItemClickListener(ViewAllUsersAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(AdminViewAllUsersAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
 

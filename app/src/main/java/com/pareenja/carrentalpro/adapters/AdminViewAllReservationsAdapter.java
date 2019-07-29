@@ -8,24 +8,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.pareenja.carrentalpro.models.Car;
 import com.pareenja.carrentalpro.models.Reservation;
 
-public class ViewAllReservationsAdapter
-        extends FirestoreRecyclerAdapter<Reservation, ViewAllReservationsAdapter.ViewHolder> {
+public class AdminViewAllReservationsAdapter
+        extends FirestoreRecyclerAdapter<Reservation, AdminViewAllReservationsAdapter.ViewHolder> {
 
-    public ViewAllReservationsAdapter(@NonNull FirestoreRecyclerOptions<Reservation> options) {
+    public AdminViewAllReservationsAdapter(@NonNull FirestoreRecyclerOptions<Reservation> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewAllReservationsAdapter.ViewHolder viewHolder, int i, @NonNull Reservation reservation) {
+    protected void onBindViewHolder(@NonNull AdminViewAllReservationsAdapter.ViewHolder viewHolder, int i, @NonNull Reservation reservation) {
 
     }
 
     @NonNull
     @Override
-    public ViewAllReservationsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminViewAllReservationsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
 

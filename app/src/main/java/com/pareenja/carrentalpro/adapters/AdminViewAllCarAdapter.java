@@ -19,11 +19,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.pareenja.carrentalpro.R;
 import com.pareenja.carrentalpro.models.Car;
 
-public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarAdapter.ViewHolder> {
+public class AdminViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, AdminViewAllCarAdapter.ViewHolder> {
 
     private OnItemClickListener listener;
 
-    public ViewAllCarAdapter(@NonNull FirestoreRecyclerOptions<Car> options) {
+    public AdminViewAllCarAdapter(@NonNull FirestoreRecyclerOptions<Car> options) {
         super(options);
     }
 
