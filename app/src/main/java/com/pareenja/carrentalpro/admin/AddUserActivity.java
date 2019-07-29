@@ -1,12 +1,7 @@
 package com.pareenja.carrentalpro.admin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 
 import com.pareenja.carrentalpro.R;
 
@@ -17,7 +12,6 @@ public class AddUserActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-//        initActivityAsDialog();
         initLayout();
     }
 
