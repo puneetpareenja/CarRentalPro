@@ -45,7 +45,7 @@ public class AdminViewActivity
                             break;
                         case R.id.admin_item_view_employees:
                             break;
-                        case R.id.admin_item_view_orders:
+                        case R.id.admin_item_view_menu:
                             break;
                         case R.id.admin_item_view_reservations:
                             break;
