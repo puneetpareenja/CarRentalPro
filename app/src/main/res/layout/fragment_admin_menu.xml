@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:gravity="center"
+    tools:context=".admin.AdminMenuFragment"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_view_add_new_category"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_add_category_black_24dp"
+        android:drawablePadding="16dp"
+        android:text="@string/add_new_category"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:padding="16dp"
+        app:drawableTint="@color/colorPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_view_logout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_logout_black_24dp"
+        android:drawablePadding="16dp"
+        android:text="@string/logout"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:padding="16dp"
+        app:drawableTint="@color/colorPrimary" />
+
+   </LinearLayout>

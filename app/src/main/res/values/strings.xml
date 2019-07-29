@@ -30,4 +30,6 @@
     <string name="reservations">Reservations</string>
     <string name="menu">Menu</string>
     <string name="add_new_employee">Add New Employee</string>
+    <string name="add_new_category">Add New Category</string>
+    <string name="logout">Logout</string>
 </resources>
