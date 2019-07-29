@@ -4,17 +4,17 @@
     >
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_item_view_cars"
+            android:id="@+id/customer_item_view_cars"
             android:icon="@drawable/ic_directions_car_black_24dp"
-            android:title="View Cars" />
+            android:title="@string/cars" />
         <item
-            android:id="@+id/nav_item_view_reservations"
+            android:id="@+id/customer_item_view_reservations"
             android:icon="@drawable/ic_library_books_black_24dp"
-            android:title="View Orders" />
+            android:title="@string/reservations" />
         <item
-            android:id="@+id/nav_item_view_profile"
+            android:id="@+id/customer_item_view_profile"
             android:icon="@drawable/ic_person_black_24dp"
-            android:title="Profile" />
+            android:title="@string/profile" />
     </group>
 
 </menu>
