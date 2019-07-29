@@ -50,6 +50,7 @@ public class AdminViewActivity
                             selectedFragment = new AdminMenuFragment();
                             break;
                         case R.id.admin_item_view_reservations:
+                            selectedFragment = new AdminReservationFragment();
                             break;
                         case R.id.admin_item_view_users:
                             selectedFragment = new AdminUserFragment();
