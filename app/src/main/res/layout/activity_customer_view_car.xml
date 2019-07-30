@@ -43,6 +43,7 @@
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
             android:layout_height="1dp"
             android:layout_below="@id/text_view_car_brand"
             android:background="@android:color/darker_gray" />
@@ -123,7 +124,7 @@
             android:text="Price per Day"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_reserve_button"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"

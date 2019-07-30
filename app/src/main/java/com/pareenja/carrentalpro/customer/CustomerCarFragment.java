@@ -1,6 +1,7 @@
 package com.pareenja.carrentalpro.customer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -75,9 +76,9 @@ public class CustomerCarFragment extends Fragment {
                 Car car = documentSnapshot.toObject(Car.class);
                 car.setId(documentSnapshot.getId());
 
-//                Intent intent = new Intent(ViewCarsActivity.this, CarDetailsActivity.class);
-//                intent.putExtra("car", car);
-//                startActivity(intent);
+                Intent intent = new Intent(getContext(), CustomerViewCarActivity.class);
+                intent.putExtra("car", car);
+                startActivity(intent);
             }
         });
     }
