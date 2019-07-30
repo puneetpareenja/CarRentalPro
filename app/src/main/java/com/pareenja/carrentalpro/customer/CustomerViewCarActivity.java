@@ -59,6 +59,7 @@ public class CustomerViewCarActivity extends AppCompatActivity {
             Intent intent = new Intent(CustomerViewCarActivity.this, ReserveCarActivity.class);
             intent.putExtra("car", car);
             startActivity(intent);
+            finish();
         }
     };
 

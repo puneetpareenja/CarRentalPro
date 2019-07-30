@@ -99,28 +99,10 @@
         android:layout_margin="8dp">
 
         <TextView
-            android:id="@+id/label_to"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/to"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_view_to"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/label_to"
-            android:layout_alignParentEnd="true"
-            android:text="@string/to"
-            android:textSize="16sp" />
-
-        <TextView
             android:id="@+id/label_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/label_to"
+            android:layout_marginTop="32dp"
             android:text="@string/from"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -135,10 +117,28 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/label_price"
+            android:id="@+id/label_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/label_from"
+            android:text="@string/to"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_view_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/label_to"
+            android:layout_alignParentEnd="true"
+            android:text="@string/to"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/label_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_to"
             android:text="@string/price"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -157,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/label_price"
-            android:text="@string/price"
+            android:text="@string/calculated_price"
             android:textSize="16sp"
             android:textStyle="bold" />
 
