@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="resType" >
+        <item>Reservation By Day</item>
+        <item>Reservation By Hours</item>
+    </string-array>
+</resources>

@@ -14,4 +14,7 @@ public class Reservation {
     private double price;
     private Date bookingStartDate;
     private Date bookingEndDate;
+    private boolean isByHour;
+    private double deposit;
+    private double total;
 }

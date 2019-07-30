@@ -1,5 +1,6 @@
 package com.pareenja.carrentalpro.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,13 +22,14 @@ public class CustomerViewCarActivity extends AppCompatActivity {
     TextView carPricePerHours;
     TextView carPricePerDay;
     MaterialButton reserveCarButton;
+    Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_view_car);
 
-        Car car = getIntent().getParcelableExtra("car");
+        car = getIntent().getParcelableExtra("car");
 
         initLayout();
         carModelTextView.setText(car.getCarModel());
@@ -54,7 +56,9 @@ public class CustomerViewCarActivity extends AppCompatActivity {
     MaterialButton.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent intent = new Intent(CustomerViewCarActivity.this, ReserveCarActivity.class);
+            intent.putExtra("car", car);
+            startActivity(intent);
         }
     };
 
