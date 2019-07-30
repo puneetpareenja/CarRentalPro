@@ -41,7 +41,7 @@
     <string name="select_to_date_and_time">Select To Date and Time</string>
     <string name="select_reservation_time">Select Reservation Time</string>
     <string name="price">Price</string>
-    <string name="deposit">Deposit</string>
+    <string name="deposit">Deposit (Refundable) </string>
     <string name="confirm_reservation">Confirm Reservation</string>
     <string name="total">Total</string>
 </resources>
