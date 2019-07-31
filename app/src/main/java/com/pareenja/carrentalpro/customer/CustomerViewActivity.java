@@ -48,6 +48,7 @@ public class CustomerViewActivity extends AppCompatActivity {
                             selectedFragment = new CustomerCarFragment();
                             break;
                         case R.id.customer_item_view_reservations:
+                            selectedFragment = new CustomerReservationFragment();
                             break;
                         case R.id.customer_item_view_profile:
                             break;

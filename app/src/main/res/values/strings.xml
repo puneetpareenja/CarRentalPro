@@ -45,4 +45,7 @@
     <string name="confirm_reservation">Confirm Reservation</string>
     <string name="total">Total</string>
     <string name="calculated_price">Renting Cost</string>
+    <string name="booked_by">Booked by : </string>
+    <string name="booking_type">Booking Type</string>
+    <string name="booking_cost">Booking Cost</string>
 </resources>
