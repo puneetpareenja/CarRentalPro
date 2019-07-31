@@ -48,4 +48,5 @@
     <string name="booked_by">Booked by : </string>
     <string name="booking_type">Booking Type</string>
     <string name="booking_cost">Booking Cost</string>
+    <string name="log_out">Log Out</string>
 </resources>
